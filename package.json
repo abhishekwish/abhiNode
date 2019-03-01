@@ -1,0 +1,23 @@
+{
+  "name": "zeptocrud",
+  "version": "1.0.0",
+  "description": "crud in node",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "crud",
+    "node",
+    "app"
+  ],
+  "author": "abhi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2",
+    "winston": "^3.2.1"
+  }
+}
