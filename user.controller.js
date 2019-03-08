@@ -1,4 +1,5 @@
 const User = require('./user.model.js');
+var jwt = require('jsonwebtoken');
 
 exports.create = (req, res) => {
     // Request validation
@@ -7,8 +8,16 @@ exports.create = (req, res) => {
             message: "user content can not be empty"
         });
     }
-
-    // Create a Product
+    console.log(req.body.user_name);
+    console.log(req.body.password);
+    
+    if(!req.body.user_name && !req.body.password){
+        return res.status(400).send({
+            message: "user content can not be empty"
+        });
+    }
+   
+    // Create a User
     const users = new User({
         user_name: req.body.user_name, 
         password: req.body.password,
@@ -17,7 +26,7 @@ exports.create = (req, res) => {
         address: req.body.address
     });
 
-    // Save Product in the database
+    // Save user in the database
     users.save()
     .then(data => {
         res.send(data);
@@ -30,27 +39,42 @@ exports.create = (req, res) => {
 
 exports.login = (req, res) => {
     // Request validation
-    if(!req.body) {
+    if(!req.body.user_name && !req.body.password){
         return res.status(400).send({
             message: "user & password can not be empty"
         });
     }
+     // login a user
+        let user_name = req.body.user_name;
+        let password = req.body.password;
+    
 
-    // login a user
-    const users = new User({
-        user_name: req.body.user_name, 
-        password: req.body.password,
-    });
+    User.findOne({'user_name': user_name}, (err, user) => {
+        if (err) {
+            res.status(500).json(err);
+        }
+        if (user) {
+            if (user.password !== password) {
+                res.status(401).send({
+                    message: 'Wrong password.'
+                });
+            } else {
 
-    // Save Product in the database
-    users.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Something wrong while creating the product."
-        });
+                token = generateJwt(user._id,user_name);
+                res.status(200);
+                res.json({
+                    'token': token,
+                    'user': user,
+                    'message': "User successfully loggidin"
+                });
+            }
+        } else {
+            res.status(404).send({
+                message: 'No user was found.'
+            });
+        }
     });
+   
 };
 
 // Retrieve all products from the database.
@@ -143,3 +167,14 @@ exports.delete = (req, res) => {
         });
     });
 };
+
+function generateJwt(id,userName)
+{
+    var expiry = new Date();
+    expiry.setDate(expiry.getDate() + 1);
+
+    return jwt.sign({
+        _id: id,
+        username: userName,
+    }, "xyzabhizyx", {expiresIn: "1 hours"});
+}
