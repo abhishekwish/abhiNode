@@ -1,8 +1,8 @@
 module.exports = (app) => {
     const products = require('./product.controller.js');
-
+    const users = require('./user.controller.js');
     // Create a new Product
-    app.post('/products', products.create);
+    app.post('/products',users.isAuthenticated, products.create);
 
     // Retrieve all Products
     app.get('/products', products.findAll);
@@ -11,8 +11,8 @@ module.exports = (app) => {
     app.get('/products/:productId', products.findOne);
 
     // Update a Note with productId
-    app.put('/products/:productId', products.update);
+    app.put('/products/:productId',users.isAuthenticated , products.update);
 
     // Delete a Note with productId
-    app.delete('/products/:productId', products.delete);
+    app.delete('/products/:productId',users.isAuthenticated , products.delete);
 }

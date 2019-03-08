@@ -25,7 +25,6 @@ exports.create = (req, res) => {
         age: req.body.age,
         address: req.body.address
     });
-
     // Save user in the database
     users.save()
     .then(data => {
@@ -178,3 +177,22 @@ function generateJwt(id,userName)
         username: userName,
     }, "xyzabhizyx", {expiresIn: "1 hours"});
 }
+
+exports.isAuthenticated = (req, res, next) => {
+     if(!req.headers.authorization) {
+        return res.status(401).send('Unauthorized Request');
+    }
+    let token = req.headers.authorization.split(' ')[1]
+    if (token === 'null'){
+        return res.status(401).send('Unauthorized Request');
+    }else{//jwt.sign()
+        let payload = jwt.verify(token,'xyzabhizyx',(err,token1)=>{
+             if(err){
+                return res.status(401).send('Unauthorized Request');
+             } else {
+                req.userId=token1.subject;
+                next();         
+             }
+         });
+    }
+};
