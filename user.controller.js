@@ -1,5 +1,6 @@
 const User = require('./user.model.js');
 var jwt = require('jsonwebtoken');
+var joi = require('joi');
 
 exports.create = (req, res) => {
     // Request validation
@@ -120,7 +121,7 @@ exports.update = (req, res) => {
     }
 
     // Find and update product with the request body
-    User.findByIdAndUpdate(req.params.userId, {
+    User.findOneAndUpdate,(req.params.userId, {
         name: req.body.name, 
         age: req.body.age,
         address: req.body.address,
@@ -146,8 +147,8 @@ exports.update = (req, res) => {
 };
 
 // Delete a note with the specified noteId in the request
-exports.delete = (req, res) => {
-    User.findByIdAndRemove(req.params.userId)
+exports.delete = (req, res) => { 
+    User.findOneAndDelete(req.params.userId)
     .then(user => {
         if(!user) {
             return res.status(404).send({

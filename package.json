@@ -17,6 +17,8 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-joi-validator": "^2.0.1",
+    "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.4.2",
     "winston": "^3.2.1"
