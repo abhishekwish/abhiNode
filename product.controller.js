@@ -1,5 +1,5 @@
 const Product = require('./product.model.js');
-
+const path  = require('path');
 //Create new Product
 exports.create = (req, res) => {
     // Request validation
@@ -118,3 +118,15 @@ exports.delete = (req, res) => {
         });
     });
 };
+
+exports.downloads = (req, res) => {
+    var file = req.params.file;
+    var fileLocation = path.join('./uploads',file);
+    res.download(fileLocation, file); 
+  };
+
+  exports.uploads = (req, res) => {
+    var file = req.params.file;
+    var fileLocation = path.join('./uploads',file);
+    res.download(fileLocation, file); 
+  };

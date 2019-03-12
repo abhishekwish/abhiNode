@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const winston    = require('winston');
+var helmet = require('helmet');
 var logger = require('./logger');
 const app = express();
 
+app.use(helmet());
+app.disable('x-powered-by');
 // parse requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

@@ -15,4 +15,6 @@ module.exports = (app) => {
 
     // Delete a Note with productId
     app.delete('/products/:productId',users.isAuthenticated , products.delete);
+
+    app.get('/download/:file(*)',products.downloads);
 }
