@@ -26,7 +26,7 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose.connect(config.url, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
 }).then(() => {
     console.log("Successfully connected to the database");
     logger.accessLog.info("Successfully connected to the database");    
@@ -35,7 +35,7 @@ mongoose.connect(config.url, {
     logger.errorLog.info('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
-
+mongoose.set('useCreateIndex', true);
 // default route
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to Abhi Product app"});

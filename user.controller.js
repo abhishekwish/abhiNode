@@ -1,22 +1,17 @@
 const User = require('./user.model.js');
 var jwt = require('jsonwebtoken');
-var joi = require('joi');
+const Joi = require('joi');
 
 exports.create = (req, res) => {
     // Request validation
-    if(!req.body) {
-        return res.status(400).send({
+    const userData = schema.validate(req.body);
+    if (userData.error) {
+        return res.status(403).send({
+            result:userData.error.ValidationError,
             message: "user content can not be empty"
         });
-    }
-    console.log(req.body.user_name);
-    console.log(req.body.password);
-    
-    if(!req.body.user_name && !req.body.password){
-        return res.status(400).send({
-            message: "user content can not be empty"
-        });
-    }
+      }
+    req.body = userData.value;
    
     // Create a User
     const users = new User({
@@ -179,6 +174,14 @@ function generateJwt(id,userName)
     }, "xyzabhizyx", {expiresIn: "1 hours"});
 }
 
+var schema = Joi.object().keys({
+    user_name: Joi.string().min(4).max(50).required().label("Please Enter valid User_Name"),
+    password: Joi.string().min(4).max(14).required().label("Please Enter valid Password "),
+    name: Joi.string().min(4).max(50).required().label("Please Enter valid Name"),
+    age: Joi.number().integer().min(16).max(100).default(20).label("Please Enter valid age"),
+    address: Joi.string().min(3).max(250).required().label("Please Enter valid address"),
+});
+
 exports.isAuthenticated = (req, res, next) => {
      if(!req.headers.authorization) {
         return res.status(401).send('Unauthorized Request');
@@ -189,7 +192,7 @@ exports.isAuthenticated = (req, res, next) => {
     }else{//jwt.sign()
         let payload = jwt.verify(token,'xyzabhizyx',(err,token1)=>{
              if(err){
-                return res.status(401).send('Unauthorized Request');
+                return res.status(401).send('Unauthorized Request'+err);
              } else {
                 req.userId=token1.subject;
                 next();         
