@@ -1,0 +1,220 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GoldLoan",
+		"_postman_id": "1ad8e55b-3cc5-b9e6-de61-9a3948d9d7db",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/v1/gold-loan/1",
+			"request": {
+				"url": "{{url}}/v1/gold-loan/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products",
+			"request": {
+				"url": "localhost:3000/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yzg3NTkwMjQzNjY2ZTMxZjJiYWE5ZjUiLCJ1c2VybmFtZSI6ImFiaGl1IiwiaWF0IjoxNTUyNDc2OTU0LCJleHAiOjE1NTI0ODA1NTR9.6TmxTuC1PIMI7E9sO2PervIGKvzVoSujwTajY9zDUWY",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "wonder",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "description",
+							"value": "test wondr",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "company",
+							"value": "wonder comp",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "product_image",
+							"description": "",
+							"type": "file",
+							"src": "640px-Sample_cheque.jpeg"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/products",
+			"request": {
+				"url": "localhost:3000/products/5c348122c6faf95d3ef683c4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"wonder\",\n    \"description\": \"test wondr\",\n    \"price\": \"1000\",\n    \"company\": \"wonder comp\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/users/authenticate",
+			"request": {
+				"url": "localhost:4000/users/authenticate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"admin\",\n\t\"password\":\"admin\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/5c825a44b0a55b74def0eb10",
+			"request": {
+				"url": "localhost:3000/users/5c825a44b0a55b74def0eb10",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzgyNWI3ZDg5ZGU1YTc2YTU4YTc0ODEiLCJ1c2VybmFtZSI6ImFiaGlrIiwiaWF0IjoxNTUyMTEzODMyLCJleHAiOjE1NTIxMTc0MzJ9.huLNkYhf_MvwuDFdRdtJlGrfhcge-PvqiMlTrsg9-ww",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users",
+			"request": {
+				"url": "localhost:3000/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YzgyNWI3ZDg5ZGU1YTc2YTU4YTc0ODEiLCJ1c2VybmFtZSI6ImFiaGlrIiwiaWF0IjoxNTUyMzc0NjU5LCJleHAiOjE1NTIzNzgyNTl9.8UwzTfTKBvTZ9Q3ExdqWp_xu8fjZIe7kepfksrHK2oI",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/login-user",
+			"request": {
+				"url": "localhost:3000/user-login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInJvbGUiOiJBZG1pbiIsImlhdCI6MTU1MTk2MTExOH0.2dep3sO6FMzX0cMg1pgIFk4Imz8JvkjQZSuX9WExRlE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\": \"abhiu\", \n    \"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/create-user",
+			"request": {
+				"url": "localhost:3000/create-user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\": \"abhiu\", \n\t\"password\": \"123456\",\n\t\"name\": \"abhi kumar\",\n    \"age\": \"23\",\n    \"address\": \"delhi 1 tsk\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/download/file.png",
+			"request": {
+				"url": "localhost:3000/download/file.png",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
