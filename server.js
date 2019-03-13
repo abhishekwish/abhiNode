@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 var helmet = require('helmet');
 var logger = require('./logger');
 const app = express();
-
+const multerapp  =   require('multer');
+const uploads     = multerapp();
 app.use(helmet());
 app.disable('x-powered-by');
 // parse requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+//app.use(uploads.array());
 
 //Enable CORS for all HTTP methods
 app.use(function(req, res, next) {

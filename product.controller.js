@@ -1,31 +1,51 @@
 const Product = require('./product.model.js');
 const path  = require('path');
+const multer  =   require('multer');
+
+var storage =   multer.diskStorage({
+    destination: function (req, file, callback) {
+      callback(null, './uploads');
+    },
+    filename: function (req, file, callback) {
+      callback(null, file.fieldname + '-' + Date.now());
+    }
+  });
+  var upload = multer({ storage : storage}).single('product_image');
+
 //Create new Product
 exports.create = (req, res) => {
     // Request validation
+    
     if(!req.body) {
         return res.status(400).send({
             message: "Product content can not be empty"
         });
     }
-
-    // Create a Product
-    const product = new Product({
-        title: req.body.title || "No product title", 
-        description: req.body.description,
-        price: req.body.price,
-        company: req.body.company
+    upload(req,res,function(err) {
+       if(err) {
+            return res.end("Error uploading file.");
+        }else{
+            const product = new Product({
+                title: req.body.title || "No product title", 
+                description: req.body.description,
+                price: req.body.price,
+                company: req.body.company,
+                product_image:req.body.image
+            });
+        
+            // Save Product in the database
+            product.save()
+            .then(data => {
+                res.send(data);
+            }).catch(err => {
+                res.status(500).send({
+                    message: err.message || "Something wrong while creating the product."
+                });
+            });
+        }
     });
-
-    // Save Product in the database
-    product.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Something wrong while creating the product."
-        });
-    });
+    
+   
 };
 
 // Retrieve all products from the database.
