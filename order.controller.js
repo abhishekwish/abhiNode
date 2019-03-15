@@ -5,10 +5,11 @@ const Joi = require('joi');
 exports.create = (req, res) => {
     // Request validation
     const orderData = schema.validate(req.body);
+    console.log(orderData.error);
     if (orderData.error) {
         return res.status(403).send({
             result:orderData.error.ValidationError,
-            message: "user content can not be empty"
+            message: "order content can not be empty"
         });
       }
     req.body = orderData.value;

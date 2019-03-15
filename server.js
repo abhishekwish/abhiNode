@@ -25,6 +25,7 @@ const config = require('./config.js');
 const mongoose = require('mongoose');
 require('./product.routes.js')(app);
 require('./user.routes.js')(app);
+require('./order.routes.js')(app);
 
 mongoose.Promise = global.Promise;
 
