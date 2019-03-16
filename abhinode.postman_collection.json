@@ -215,6 +215,43 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:3000/create-order",
+			"request": {
+				"url": "localhost:3000/create-order",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_name\": \"test product\", \n    \"user_id\": \"32ewewe2e2\",\n    \"product_id\": \"32ewewe2e2\",\n    \"order_method\": \"cod\",\n    \"order_status\": \"success\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/orders",
+			"request": {
+				"url": "localhost:3000/orders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yzg3NTkwMjQzNjY2ZTMxZjJiYWE5ZjUiLCJ1c2VybmFtZSI6ImFiaGl1IiwiaWF0IjoxNTUyNzM0MTA2LCJleHAiOjE1NTI3Mzc3MDZ9.e_exKx9pPoboj1bqseicZtXjjQW5IwLE14heCFG1AEM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
