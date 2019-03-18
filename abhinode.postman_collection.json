@@ -230,7 +230,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"product_name\": \"test product\", \n    \"user_id\": \"32ewewe2e2\",\n    \"product_id\": \"32ewewe2e2\",\n    \"order_method\": \"cod\",\n    \"order_status\": \"success\"\n}"
+					"raw": "{\n\t\"product_name\": \"test product\", \n    \"user_id\": \"5c875b57baa99936b89e9c32\",\n    \"product_id\": \"5c34815ac6faf95d3ef683c5\",\n    \"order_method\": \"cod\",\n    \"order_status\": \"success\"\n}"
 				},
 				"description": ""
 			},
@@ -244,7 +244,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yzg3NTkwMjQzNjY2ZTMxZjJiYWE5ZjUiLCJ1c2VybmFtZSI6ImFiaGl1IiwiaWF0IjoxNTUyNzM0MTA2LCJleHAiOjE1NTI3Mzc3MDZ9.e_exKx9pPoboj1bqseicZtXjjQW5IwLE14heCFG1AEM",
+						"value": "bareer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Yzg3NTkwMjQzNjY2ZTMxZjJiYWE5ZjUiLCJ1c2VybmFtZSI6ImFiaGl1IiwiaWF0IjoxNTUyOTAwMjUxLCJleHAiOjE1NTI5MDM4NTF9.K2G9XhDN-UeLHsTigTo71zLKjQIAdHeVxT8A-mFKg2U",
 						"description": ""
 					}
 				],
