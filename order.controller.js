@@ -42,15 +42,24 @@ exports.findAll = (req, res) => {
             populate: { path: 'classid', model: 'Addclass' }
         }
   });
-
-  Order.aggregate([{
+  //db.orders.aggregate([{$lookup: {from: "users",localField: "user_id",foreignField: "_id",as: "usersData"}}])
+  Order.aggregate([{      
     $lookup: {
-        from: "Users", // collection name in db
-        localField: "user",
+        from: "users", // collection name in db
+        localField: "user_id",
         foreignField: "_id",
         as: "usersData"
-    }
-}]).exec(function(err, orders) {
+    }},
+    {      
+        $lookup: {
+            from: "products", // collection name in db
+            localField: "product_id",
+            foreignField: "_id",
+            as: "productData"
+        }},
+        { $unwind: "$usersData"},
+        { $unwind: "$productData"},
+]).exec(function(err, orders) {
     // students contain WorksnapsTimeEntries
     if(err){
         console.log(err);
