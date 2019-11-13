@@ -1,6 +1,6 @@
 const User = require('./user.model.js');
 var jwt = require('jsonwebtoken');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 exports.create = (req, res) => {
     // Request validation

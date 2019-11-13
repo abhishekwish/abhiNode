@@ -1,7 +1,6 @@
 module.exports = (app) => {
     const users = require('./user.controller.js');
-    //const Joi = require('joi');
-    //const expressJoi = require('express-joi-middleware');
+    
     // Create a new Product
     app.post('/create-user', users.create);
 
@@ -19,13 +18,5 @@ module.exports = (app) => {
     // Delete a Note with productId
     app.delete('/users/:userId', users.delete);
  
-    /*var schema = Joi.object().keys({
-        user_name: Joi.string().min(4).max(50).required().label("Please Enter valid User_Name"),
-        password: Joi.string().min(4).max(14).required().label("Please Enter valid Password "),
-        name: Joi.string().min(4).max(50).required().label("Please Enter valid Name"),
-        age: Joi.number().integer().min(16).max(100).default(20).label("Please Enter valid age"),
-        address: Joi.string().min(3).max(250).required().label("Please Enter valid address"),
-    });
-    */
     
 }

@@ -28,10 +28,10 @@ require('./user.routes.js')(app);
 require('./order.routes.js')(app);
 
 mongoose.Promise = global.Promise;
-
+// useUnifiedTopology: true  is optional
 // Connecting to the database
 mongoose.connect(config.url, {
-    useNewUrlParser: true,
+    useNewUrlParser: true, useUnifiedTopology: true ,
 }).then(() => {
     console.log("Successfully connected to the database");
     logger.accessLog.info("Successfully connected to the database");    
@@ -43,7 +43,7 @@ mongoose.connect(config.url, {
 mongoose.set('useCreateIndex', true);
 // default route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Abhi Product app"});
+    res.json({"message": "Welcome to Abhinext E-Product app"});
 });
 
 // listen on port 3000

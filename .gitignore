@@ -8,12 +8,6 @@
 # dependencies
 /node_modules
 
-# profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
-/access.log
-
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
@@ -21,17 +15,9 @@ speed-measure-plugin.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
 
 access.log
+errors.log
 node_modules/
 package-lock.json
 

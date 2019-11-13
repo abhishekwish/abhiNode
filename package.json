@@ -1,18 +1,8 @@
 {
-  "name": "zeptocrud",
-  "version": "1.0.0",
-  "description": "crud in node",
+  "name": "abhinext-node",
+  "version": "1.1.0",
+  "description": "This Basic CRUD Application on  MEAN stack where JWT authantication as file upload created.",
   "main": "server.js",
-  "scripts": {
-    "test": "node test"
-  },
-  "keywords": [
-    "crud",
-    "node",
-    "app"
-  ],
-  "author": "abhi",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
@@ -20,10 +10,32 @@
     "express-joi-middleware": "^1.0.0",
     "express-joi-validator": "^2.0.1",
     "helmet": "^3.16.0",
-    "joi": "^14.3.1",
+    "@hapi/joi": "^15.0.3",
     "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.4.2",
     "multer": "^1.4.1",
     "winston": "^3.2.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekwish/abhiNode.git"
+  },
+  "keywords": [
+    "crud in nodejs",
+    "upload file nodejs",
+    "auth",
+    "with",
+    "jwt"
+  ],
+  "author": "abhinext",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekwish/abhiNode/issues"
+  },
+  "homepage": "https://github.com/abhishekwish/abhiNode#readme"
 }
