@@ -10,6 +10,6 @@
    nodejs version  : ##10.0.1 or greater
 
 ## configration 
-    ##update config file with your mongodb detail
-   ##postman colleaction there you can test your app
+    update config file with your mongodb detail
+    postman colleaction there you can test your app
    
