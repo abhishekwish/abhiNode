@@ -43,7 +43,8 @@ mongoose.connect(config.url, {
 mongoose.set('useCreateIndex', true);
 // default route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Abhinext E-Product app"});
+  //  res.json("Welcome to Abhinext E-Product app");
+    res.status(200).send('Welcome to Abhinext E-Product app') 
 });
 
 // listen on port 3000
@@ -51,3 +52,5 @@ app.listen(config.serverport, () => {
     logger.accessLog.info("info", "App listening at localhost:3000");
     console.log("Server is listening on port 3000");
 });
+
+module.exports = app; 
