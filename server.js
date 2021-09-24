@@ -23,9 +23,13 @@ app.use(function(req, res, next) {
 // Configuring the database
 const config = require('./config.js');
 const mongoose = require('mongoose');
-require('./product.routes.js')(app);
-require('./user.routes.js')(app);
-require('./order.routes.js')(app);
+require('./module/product.routes')(app);
+require('./module/user.routes.js')(app);
+require('./module/order.routes.js')(app);
+
+//require('./product.routes.js')(app);
+//require('./user.routes.js')(app);
+//require('./order.routes.js')(app);
 
 mongoose.Promise = global.Promise;
 // useUnifiedTopology: true  is optional
