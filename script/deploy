@@ -7,7 +7,7 @@ ssh -tt ubuntu@15.206.189.123 <<EOF
     fi
     mkdir temp_code_base
     cd ~/temp_code_base
-    git clone git@github.com:abhishekwish/abhiNode.git
+    git clone https://github.com/abhishekwish/abhiNode.git
     cd ~/temp_code_base/abhiNode
     git checkout master
     cd ~/node-app
