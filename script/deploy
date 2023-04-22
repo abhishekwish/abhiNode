@@ -1,5 +1,5 @@
 #!/bin/sh
-ssh -tt ubuntu@15.206.189.123 <<EOF
+ssh -tt ubuntu@XXX.XXX.XXX.XXX <<EOF
     #remove the existing temp code base
     if [[ ! -d temp_code_base ]]
     then
